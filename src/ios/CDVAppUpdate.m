@@ -37,12 +37,12 @@ static NSString *const TAG = @"CDVAppUpdate";
 
 
 // Since we use different version mechanism in app store (1.x.BUILD_NUMBER) and in bundleVersion (YEAR.BUILD_NUMBER)
-// We alter the logic to only check the last number in the version
+// We alter the logic to only checkg the last number in the version
         NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
         f.numberStyle = NSNumberFormatterDecimalStyle;
         NSNumber* currentBuild = [f numberFromString:[currentVersionArr objectAtIndex:[currentVersionArr count]-1]];
         NSNumber* appStoreBuild = [f numberFromString:[appStoreVersionArr objectAtIndex:[appStoreVersionArr count]-1]];
-        if ([[f numberFromString:"0"] compare:appStoreVersionNumber] == NSOrderedAscending) {
+        if ([[f numberFromString:@"0"] compare:appStoreVersionNumber] == NSOrderedAscending) {
             NSLog(@"%@ Need to update [%@ != %@]", TAG, appStoreVersion, currentVersion);
             if ([force_api length] > 0) {
                 NSURL* force_url = [NSURL URLWithString:[NSString stringWithFormat:force_api]];
