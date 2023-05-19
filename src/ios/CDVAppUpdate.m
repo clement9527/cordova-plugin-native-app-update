@@ -42,7 +42,7 @@ static NSString *const TAG = @"CDVAppUpdate";
         f.numberStyle = NSNumberFormatterDecimalStyle;
         NSNumber* currentBuild = [f numberFromString:[currentVersionArr objectAtIndex:[currentVersionArr count]-1]];
         NSNumber* appStoreBuild = [f numberFromString:[appStoreVersionArr objectAtIndex:[appStoreVersionArr count]-1]];
-        if ([[NSNumber numberFromString:"0"] compare:appStoreVersionNumber] == NSOrderedAscending) {
+        if ([[f numberFromString:"0"] compare:appStoreVersionNumber] == NSOrderedAscending) {
             NSLog(@"%@ Need to update [%@ != %@]", TAG, appStoreVersion, currentVersion);
             if ([force_api length] > 0) {
                 NSURL* force_url = [NSURL URLWithString:[NSString stringWithFormat:force_api]];
