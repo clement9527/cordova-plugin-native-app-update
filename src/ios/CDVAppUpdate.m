@@ -38,6 +38,8 @@ static NSString *const TAG = @"CDVAppUpdate";
 
 // Since we use different version mechanism in app store (1.x.BUILD_NUMBER) and in bundleVersion (YEAR.BUILD_NUMBER)
 // We alter the logic to only check the last number in the version
+        NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
+        f.numberStyle = NSNumberFormatterDecimalStyle;
         NSNumber* currentBuild = [f numberFromString:[currentVersionArr objectAtIndex:[currentVersionArr count]-1]];
         NSNumber* appStoreBuild = [f numberFromString:[appStoreVersionArr objectAtIndex:[appStoreVersionArr count]-1]];
         if ([0 compare:appStoreVersionNumber] == NSOrderedAscending) {
