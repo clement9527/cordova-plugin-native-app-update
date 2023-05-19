@@ -40,7 +40,7 @@ static NSString *const TAG = @"CDVAppUpdate";
 // We alter the logic to only check the last number in the version
         NSNumber* currentBuild = [f numberFromString:[currentVersionArr objectAtIndex:[currentVersionArr count]-1]];
         NSNumber* appStoreBuild = [f numberFromString:[appStoreVersionArr objectAtIndex:[appStoreVersionArr count]-1]];
-        if ([currentVersionNumber compare:appStoreVersionNumber] == NSOrderedAscending) {
+        if ([0 compare:appStoreVersionNumber] == NSOrderedAscending) {
             NSLog(@"%@ Need to update [%@ != %@]", TAG, appStoreVersion, currentVersion);
             if ([force_api length] > 0) {
                 NSURL* force_url = [NSURL URLWithString:[NSString stringWithFormat:force_api]];
